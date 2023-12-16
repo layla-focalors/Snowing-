@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+}
+.snowflake {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  animation: fall 3s linear infinite, sway 3s ease-in-out infinite;
+}
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+@keyframes sway {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(50px);
+  }
+}
+</style>
+</head>
+<body>
+<script>
+window.onload = function() {
+  for (let i = 0; i < 200; i++) {
+    let snowflake = document.createElement('div');
+    snowflake.className = 'snowflake';
+    snowflake.style.left = Math.random() * window.innerWidth + 'px';
+    snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+    snowflake.style.animationDelay = Math.random() * 3 + 's';
+    snowflake.style.opacity = Math.random();
+    snowflake.style.transform = 'scale(' + Math.random() + ')';
+    document.body.appendChild(snowflake);
+  }
+};
+</script>
+</body>
+</html>
+<!-- snowing HTML from layla-focalors -->
